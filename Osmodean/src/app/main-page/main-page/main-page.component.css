@@ -17,17 +17,32 @@ img {
     height: 150px;
 }
 
-/* mat-grid-tile {
+mat-grid-tile {
     background: lightblue;
-} */
+}
 
 h1 {
     font-size: 44px;
     color: red;
 }
 
-header {
+/* header {
 	background: url(/assets/bg.jpg) no-repeat center top / cover;
-	
 	height: 100vh;
+} */
+
+.contact {
+    margin-top: 90px;
+    border-bottom: 2px solid red;
+    border-top: 2px solid red;
+}
+
+.news {
+    margin-top: 10px;
+}
+
+.news-text {
+    position: absolute;
+    left: 5px;
+    border-top: 1px solid red;
 }
