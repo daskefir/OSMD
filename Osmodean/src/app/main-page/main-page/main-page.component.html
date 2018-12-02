@@ -1,115 +1,60 @@
-<header>
-  <mat-toolbar color="primary">
-    <mat-icon class="example-icon">verified_user</mat-icon>
-    <span>Особистий кабінет</span>
-  </mat-toolbar>
+<div class="all">
+  <header>
+    <mat-toolbar>
+      <div class="login">
+        <mat-icon class="login-icon">account_box</mat-icon>
+        <button class="login-button" mat-button>Особистий кабінет</button>
+      </div>
+    </mat-toolbar>
+  </header>
 
-  <div class="contact">
+  <!-- -----------------Company name--------------------- -->
+  <section>
+    <mat-grid-list cols="1" rowHeight="140px">
+      <mat-grid-tile colspan="1" rowspan="1">
+        <h1 class="company-name">{{companyName}}</h1>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </section>
+
+  <!-- ------------------Contacts------------------------ -->
+  <section class="contacts">
     <mat-grid-list cols="3" rowHeight="6:1">
-      <mat-grid-tile>
-        <p class="contacts">Голова ОСМД
+      <mat-grid-tile *ngFor="let contact of contacts">
+        <p>{{contact.person}}
           <br>
-          <span style="color:red; font-size:20px">+3 097
-                  <span style="font-size:25px">123 45 67</span>
-          </span>
-        </p>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <p class="contacts">Бухгалтер
-          <br>
-          <span style="color:red; font-size:20px">+3 068
-                      <span style="font-size:25px">456 45 67</span>
-          </span>
-        </p>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <p class="contacts">Електрик
-          <br>
-          <span style="color:red; font-size:20px">+3 063
-                      <span style="font-size:25px">589 68 67</span>
-          </span>
-        </p>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <p class="contacts">Сантехнік
-          <br>
-          <span style="color:red; font-size:20px">+3 096
-                      <span style="font-size:25px">864 31 11</span>
-          </span>
-        </p>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <p class="contacts">Охорона
-          <br>
-          <span style="color:red; font-size:20px">+3 048
-                      <span style="font-size:25px">765 65 65</span>
-          </span>
-        </p>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <p class="contacts">Диспетчер ліфту
-          <br>
-          <span style="color:red; font-size:20px">+3 063
-                      <span style="font-size:25px">321 21 12</span>
-          </span>
+          <span class="contacts-number">{{contact.number}}</span>
         </p>
       </mat-grid-tile>
     </mat-grid-list>
-  </div>
+  </section>
 
-  <mat-grid-list cols="6" rowHeight="150px">
-
-    <mat-grid-tile colspan="1" rowspan="1">
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <img src="assets/logo.png" alt="Logo">
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="3" rowspan="1">
-      <h1>ОСМД "Новострой-2018"</h1>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="1">
-    </mat-grid-tile>
-
-  </mat-grid-list>
-
-  <mat-grid-list class="contact" cols="1" rowHeight="200px">
-    <mat-grid-list cols="3" rowHeight="200px">
-
-      <mat-grid-tile colspan="1" rowspan="1">
-        <mat-icon class="example-icon">email</mat-icon>
-        <span>Відправити показники лічильників</span>
+  <!-- ------------------Useful information------------ -->
+  <mat-grid-list class="userfulInfo" cols="1" rowHeight="130px">
+    <mat-grid-list cols="3" rowHeight="130px">
+      <mat-grid-tile *ngFor="let info of userfulInfo">
+        <div class="information">
+          <mat-icon class="icon">{{info.iconName}}</mat-icon>
+          <span>{{info.text}}</span>
+        </div>
       </mat-grid-tile>
-
-      <mat-grid-tile colspan="1" rowspan="1">
-        <mat-icon class="example-icon">monetization_on</mat-icon>
-        <span>Тарифи для дому</span>
-      </mat-grid-tile>
-
-      <mat-grid-tile colspan="1" rowspan="1">
-        <mat-icon class="example-icon">message</mat-icon>
-        <span>Питання-відповідь</span>
-      </mat-grid-tile>
-
     </mat-grid-list>
   </mat-grid-list>
 
-  <mat-grid-list class="news" cols="1">
-    Новини
-    <mat-grid-tile class="news-text" colspan="1" rowspan="1">
-      <p>Про воду
-        <br>
+</div>
+
+<!-- -------------------News------------------------ -->
+<section class="all-news">
+  <div class="title">Новини</div>
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile class="news-text" *ngFor="let news of allNews">
+      <div class="news">
+        <p>{{news.newsTitle}}</p>
         <span>
-        Філія "Інфокводоканал" з 08.11.2018 року підвищує вартість води до 21,95 грн/м.куб.
-      </span>
-      </p>
+          {{news.newsText}}
+        </span>
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
-</header>
+</section>
+<!-- ---------------------------------------------- -->

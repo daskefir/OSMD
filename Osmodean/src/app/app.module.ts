@@ -6,6 +6,7 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { MainPageModule } from './main-page/main-page.module';
+import { LoginModule } from './login/login.module';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'}
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    MainPageModule
+    MainPageModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

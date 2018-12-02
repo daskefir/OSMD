@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 
 @Component({
   selector: 'app-main-page',
@@ -15,9 +9,28 @@ export interface Tile {
 
 export class MainPageComponent implements OnInit {
 
-  tiles: Tile[] = [
-    {text: 'src="assets/logo.jpg" alt="Logo"', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'ОСМД "Новострой-2018"', cols: 5, rows: 1, color: 'lightgreen'}
+  companyName = 'ОСМД "Новострой-2018"';
+  companyLogo = 'assets/logo.png';
+
+  contacts = [
+    {person: 'Голова ОСМД', number: '097 123 45 67'},
+    {person: 'Бухгалтер', number: '068 456 45 67'},
+    {person: 'Електрик', number: '063 589 68 67'},
+    {person: 'Сантехнік', number: '096 864 31 11'},
+    {person: 'Охорона', number: '048 765 65 65'},
+    {person: 'Диспетчер ліфту', number: '063 321 21 12'}
+  ];
+
+  userfulInfo = [
+    {iconName: 'email', text: 'Відправити показники лічильників'},
+    {iconName: 'monetization_on', text: 'Тарифи для дому'},
+    {iconName: 'message', text: 'Питання-відповідь'}
+  ];
+
+  allNews = [
+    {newsTitle: 'Про воду', newsText: 'Філія "Інфокводоканал" з 08.11.2018 року підвищує вартість води до 21,95 грн/м.куб.'},
+    {newsTitle: 'Вакансія бухгалтера', newsText: `Запрошуємо на роботу бухгалтера,
+                розмір заробітної плати визначиться за результатами співбесіди`}
   ];
 
   constructor() { }
