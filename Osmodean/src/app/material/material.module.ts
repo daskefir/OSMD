@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatTabsModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule
   ],
   exports: [
     CommonModule,
@@ -40,7 +44,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSidenavModule,
     MatTabsModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule
   ],
   declarations: []
 })

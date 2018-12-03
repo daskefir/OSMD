@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -13,6 +14,8 @@ import { User } from '../../models/user';
 
 export class LoginComponent implements OnInit {
 
+  constructor(public dialogRef: MatDialogRef<LoginComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private router: Router) { }
   user: User;
   loginForm: FormGroup;
   state = 'small';
@@ -24,48 +27,50 @@ export class LoginComponent implements OnInit {
 
   validationMessages = {
     login: {
-      required: 'Login is required',
-      email: 'Enter valid email',
+      required: 'Обов\'язкове поле',
+      email: 'Невірно заповнене',
 
     },
     password: {
-      required: 'Password is reqired',
-      minlength: 'Password must be at least 8 characters long'
+      required: 'Обов\'язкове поле',
+      minlength: 'Пароль повинен містити щонайменьше 8 знаків'
     }
   };
-  constructor(private fb: FormBuilder, private router: Router/*, private authService: AuthGuardService*/) { }
+  // constructor(private fb: FormBuilder, private router: Router/*, private authService: AuthGuardService*/) { }
 
   ngOnInit() {
-    // this.loginForm = this.fb.group({
-    //   login: ['', [Validators.required, Validators.email]],
-    //   password: ['', [Validators.required, Validators.minLength(8)]]
-    // });
+    this.loginForm = this.fb.group({
+      login: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    });
 
-    // this.loginForm.valueChanges.subscribe(data => this.valueChanged(data));
+    this.loginForm.valueChanges.subscribe(data => this.valueChanged(data));
   }
 
-  // valueChanged(data) {
-  //   for (const field in this.formErrors) {
-  //     this.formErrors[field] = '';
-  //     const control = this.loginForm.get(field);
-  //     if (control.dirty) {
-  //       for (const key in control.errors) {
-  //         this.formErrors[field] = this.validationMessages[field][key];
-  //       }
-  //     }
-  //   }
-  // }
+  valueChanged(data) {
+    for (const field of Object.keys(this.formErrors)) {
+      this.formErrors[field] = '';
+      const control = this.loginForm.get(field);
+      if (control.dirty) {
+        for (const key in control.errors) {
+          if (this.formErrors.hasOwnProperty(field)) {
+            this.formErrors[field] = this.validationMessages[field][key];
+          }
+        }
+      }
+    }
+  }
 
-  // onSubmit(form: FormGroup) {
-  //   this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
-  //   .subscribe(
-  //     data => {
-  //       this.router.navigate(['main']);
-  //     }
-  //   );
-  //   // console.log(form.valid);
-  //   // console.log(form.value);
-  //   // console.log(form.pristine);
-  //   // this.router.navigate(['main']);
-  // }
+  onSubmit(form: FormGroup) {
+    // this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
+    // .subscribe(
+    //   data => {
+    //     this.router.navigate(['main']);
+    //   }
+    // );
+    console.log(form.valid);
+    console.log(form.value);
+    console.log(form.pristine);
+    this.router.navigate(['main']);
+  }
 }

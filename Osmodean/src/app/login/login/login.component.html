@@ -1,7 +1,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" class="login-form" novalidate>
 
   <mat-form-field>
-    <input matInput placeholder="Email" formControlName="login" type="email" autofocus>
+    <input matInput placeholder="Електронна адреса" formControlName="login" type="email" autofocus>
   </mat-form-field>
 
   <mat-error *ngIf="formErrors.login">
@@ -9,20 +9,20 @@
   </mat-error>
 
   <mat-form-field>
-    <input matInput placeholder="Password" formControlName="password" type="password">
+    <input matInput placeholder="Пароль" formControlName="password" type="password">
   </mat-form-field>
 
   <mat-error *ngIf="formErrors.password">
     {{formErrors.password}}
   </mat-error>
 
-  <mat-checkbox>To stay logged!</mat-checkbox>
+  <!-- <mat-checkbox>Залишитися в системі</mat-checkbox> -->
 
-  <button mat-raised-button color="primary" class="submit-btn" [disabled]="loginForm.invalid">Sign in</button>
+  <button mat-raised-button color="primary" class="submit-btn" [disabled]="loginForm.invalid">Вхід</button>
 
-  <div class="links">
-    <a routerLink=".">Forgot your password?</a>
-    <a routerLink=".">Register</a>
-  </div>
+  <!-- <div class="links">
+    <a routerLink=".">Зберегти пароль?</a>
+    <a routerLink=".">Зареєструватися</a>
+  </div> -->
 
 </form>

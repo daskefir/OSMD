@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { LoginComponent } from '../../login/login/login.component';
 
 
 @Component({
@@ -33,7 +35,18 @@ export class MainPageComponent implements OnInit {
                 розмір заробітної плати визначиться за результатами співбесіди`}
   ];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  openLogin(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      height: '400px',
+      width: '400px'
+  });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
   }
