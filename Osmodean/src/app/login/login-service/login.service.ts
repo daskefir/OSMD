@@ -17,12 +17,10 @@ export class LoginService {
       .subscribe(data => {
         data = data;
         if (data.user && data.token) {
-          // console.log(data);
           const user = data.user;
           this.saveToken(data.token);
           localStorage.setItem('currentUser', user);
           this.isLoggedIn = true;
-          // this.router.navigate(['/admin']);
           console.log(this.isLoggedIn);
         }
       });

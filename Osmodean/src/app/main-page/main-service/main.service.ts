@@ -11,20 +11,5 @@ export class MainService {
 
   getCompanyInfo() {
     return this.httpClient.get<Company>('http://localhost:3000/main');
-    // .subscribe(data => {
-    //   data = data;
-    //   console.log(data);
-    // });
   }
-
-  // getContests() {
-  //   this.httpClient.get('http://localhost:3000/admin')
-  //     .subscribe(data => {
-  //       data = data;
-  //     });
-  // }
-
-  //   getContestById(id: string) {
-  //     return this.httpClient.put('http://localhost:3000/contest/id', { id });
-  //   }
 }

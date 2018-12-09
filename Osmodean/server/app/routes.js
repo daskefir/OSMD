@@ -4,32 +4,7 @@ const infoCompany = require('./models/company');
 
 var jwt = require('jsonwebtoken');
 const serverJWTSecret = '7pTxN5k652fjHFEJ58LfrLL;';
-
-// const cloudinary = require('cloudinary');
-// const cloudinaryStorage = require('multer-storage-cloudinary');
-// const multer = require('multer');
 const expressJwt = require('express-jwt');
-
-
-// cloudinary.config({
-//     cloud_name: 'vanvani4',
-//     api_key: '611596714563166',
-//     api_secret: 'Z1E-veCzPCBkIZqg4lmE3gEPTiQ'
-// });
-
-// const storage = cloudinaryStorage({
-//     cloudinary: cloudinary,
-//     folder: 'Contests',
-//     allowedFormats: ['jpg', 'png'],
-//     transformation: [
-//         {width: 235, height: 173, crop: 'fit'}
-//     ],
-//     // filename: function (req, file, cb) {
-//     //     cb(undefined, 'my-file-name');
-//     //   }
-// });
-
-// const parser = multer({ storage: storage });
 
 const validateToken = function (req, res, next) {
     console.log(req.headers.authorization);
@@ -59,19 +34,9 @@ module.exports = function (app) {
         console.log('get main');
     });
 
-    // app.put('/contest/:id', function (req, res) {
-    //     infoCompany.findById(req.body.id, function (err, contest) {
-    //         if (err) {
-    //             res.send(err);
-    //         }
-    //         res.json(contest);
-    //     });
-    //     console.log('put contest/id');
-    // });
-
     // ---------------------create new company------------------------------
 
-    // app.post('/create', /*validateToken,*/ function (req, res) {
+    // app.post('/create', validateToken, function (req, res) {
     //     infoCompany.create({
     //         name: 'ОСМД "Новострой-2018"',
     //         contacts: [
@@ -103,6 +68,8 @@ module.exports = function (app) {
     //     });
     //     console.log('post registration');
     // });
+
+    // ---------------------login User----------------------------------------
 
     app.post('/login', function (req, res) {
         User.findOne({ login: req.body.login, password: req.body.password },
