@@ -12,19 +12,19 @@
   <section>
     <mat-grid-list cols="1" rowHeight="140px">
       <mat-grid-tile colspan="1" rowspan="1">
-        <h1 class="company-name">{{companyName}}</h1>
+        <h1 class="company-name">{{company?.name}}</h1>
       </mat-grid-tile>
     </mat-grid-list>
   </section>
 
-  <!-- ------------------Contacts------------------------ -->
+  <!-- ------------------Contats------------------------ -->
   <section class="contacts">
-    <mat-grid-list cols="3" rowHeight="6:1">
-      <mat-grid-tile *ngFor="let contact of contacts">
-        <p>{{contact.person}}
-          <br>
+    <mat-grid-list cols="3" rowHeight="100px">
+      <mat-grid-tile *ngFor="let contact of company?.contacts">
+        <div class="information">
+          <p>{{contact.person}}</p>
           <span class="contacts-number">{{contact.number}}</span>
-        </p>
+        </div>
       </mat-grid-tile>
     </mat-grid-list>
   </section>
@@ -47,12 +47,12 @@
 <section class="all-news">
   <div class="title">Новини</div>
   <mat-grid-list cols="1" rowHeight="100px">
-    <mat-grid-tile class="news-text" *ngFor="let news of allNews">
+    <mat-grid-tile *ngFor="let news of allNews">
       <div class="news">
-        <p>{{news.newsTitle}}</p>
-        <span>
+        <p class="news-title">{{news.newsTitle}}</p>
+        <p class="news-text">
           {{news.newsText}}
-        </span>
+        </p>
       </div>
     </mat-grid-tile>
   </mat-grid-list>

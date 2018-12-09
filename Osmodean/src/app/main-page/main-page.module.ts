@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '../material/material.module';
 import { MainPageRoutingModule } from './main-page-routing.module';
-import { MainPageComponent } from './main-page/main-page.component';
+import { MainPageComponent } from './main-component/main-page.component';
 
 @NgModule({
   declarations: [MainPageComponent],

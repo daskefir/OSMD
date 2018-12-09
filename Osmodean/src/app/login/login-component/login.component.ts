@@ -2,9 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../login-service/login.service';
 
 import { User } from '../../models/user';
-// import { AuthGuardService } from '../../guard/auth-guard.service'
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,9 @@ import { User } from '../../models/user';
 export class LoginComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private router: Router) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder, private router: Router, private loginService: LoginService) { }
+
   user: User;
   loginForm: FormGroup;
   state = 'small';
@@ -33,10 +35,9 @@ export class LoginComponent implements OnInit {
     },
     password: {
       required: 'Обов\'язкове поле',
-      minlength: 'Пароль повинен містити щонайменьше 8 знаків'
+      minlength: 'Пароль повинен містити щонайменше 8 символів'
     }
   };
-  // constructor(private fb: FormBuilder, private router: Router/*, private authService: AuthGuardService*/) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -62,15 +63,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    // this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
-    // .subscribe(
-    //   data => {
-    //     this.router.navigate(['main']);
-    //   }
-    // );
-    console.log(form.valid);
-    console.log(form.value);
-    console.log(form.pristine);
-    this.router.navigate(['main']);
+    this.loginService.login(form.value.login, form.value.password);
   }
 }
