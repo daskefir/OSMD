@@ -64,5 +64,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     this.loginService.login(form.value.login, form.value.password);
+    this.dialogRef.close();
   }
 }

@@ -8,12 +8,12 @@ import { ReqObj } from '../../models/request-obj';
 })
 export class LoginService {
 
-  isLoggedIn = false;
+  isLoggedIn: Boolean = false;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   login(login, password) {
-    return this.httpClient.post<ReqObj>('http://localhost:3000/login', { login, password })
+    this.httpClient.post<ReqObj>('http://localhost:3000/login', { login, password })
       .subscribe(data => {
         data = data;
         if (data.user && data.token) {
@@ -21,7 +21,7 @@ export class LoginService {
           this.saveToken(data.token);
           localStorage.setItem('currentUser', user);
           this.isLoggedIn = true;
-          console.log(this.isLoggedIn);
+          this.router.navigate(['/admin']);
         }
       });
   }
