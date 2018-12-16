@@ -1,0 +1,8 @@
+.example-form {
+    position: fixed;
+    left: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50vw;
+}

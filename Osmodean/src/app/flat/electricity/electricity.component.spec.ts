@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlatPAgeComponent } from './flat-page.component';
+import { ElectricityComponent } from './electricity.component';
 
-describe('FlatPAgeComponent', () => {
-  let component: FlatPAgeComponent;
-  let fixture: ComponentFixture<FlatPAgeComponent>;
+describe('ElectricityComponent', () => {
+  let component: ElectricityComponent;
+  let fixture: ComponentFixture<ElectricityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlatPAgeComponent ]
+      declarations: [ ElectricityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FlatPAgeComponent);
+    fixture = TestBed.createComponent(ElectricityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
