@@ -9,9 +9,12 @@ import { LoginModule } from './login-page/login.module';
 import { NewsComponent } from './flat/news/news.component';
 import { FLATModule} from './flat/flat.module';
 import { AdminModule } from './admin-page/admin.module';
+import { FlatPageComponent } from './flat/flat-page.component';
 
 const appRoutes: Routes = [
+  {path: 'flat', component: FlatPageComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
+  // {path: '', component: MainPageModule}
 ];
 
 @NgModule({
