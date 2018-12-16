@@ -1,4 +1,12 @@
-<p>
-  admin works!
-</p>
-<button class="login-button" mat-button (click)="exit()">Вийти</button>
+<mat-toolbar color="primary">
+    <span>Привіт {{currentUser}}</span>
+    <span class="space"></span>
+  <button class="exit-button" mat-button (click)="exit()">Вийти</button>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Інформація про ОСМД">
+    <app-info-company-tab></app-info-company-tab>
+  </mat-tab>
+  <mat-tab label="Новини"> Новини </mat-tab>
+</mat-tab-group>

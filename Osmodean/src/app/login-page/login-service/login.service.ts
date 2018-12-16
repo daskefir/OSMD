@@ -9,6 +9,7 @@ import { ReqObj } from '../../models/request-obj';
 export class LoginService {
 
   isLoggedIn: Boolean = false;
+  currenUser: string;
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -18,6 +19,7 @@ export class LoginService {
         data = data;
         if (data.user && data.token) {
           const user = data.user;
+          this.currenUser = user;
           this.saveToken(data.token);
           localStorage.setItem('currentUser', user);
           this.isLoggedIn = true;
