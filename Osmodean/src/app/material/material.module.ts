@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material';
@@ -15,6 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   imports: [
@@ -31,7 +31,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
   exports: [
     CommonModule,
@@ -47,7 +48,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatFormFieldModule
-  ]
+    MatFormFieldModule,
+    MatSnackBarModule
+  ],
+  declarations: []
 })
 export class MaterialModule { }
