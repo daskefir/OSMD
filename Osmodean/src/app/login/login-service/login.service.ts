@@ -17,6 +17,7 @@ export class LoginService {
       .subscribe(data => {
         data = data;
         if (data.user && data.token) {
+          console.log(data.user, data.token);
           const user = data.user;
           this.saveToken(data.token);
           localStorage.setItem('currentUser', user);
