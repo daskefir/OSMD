@@ -14,7 +14,6 @@ import { FlatPageComponent } from './flat/flat-page.component';
 const appRoutes: Routes = [
   {path: 'flat', component: FlatPageComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
-  // {path: '', component: MainPageModule}
 ];
 
 @NgModule({
